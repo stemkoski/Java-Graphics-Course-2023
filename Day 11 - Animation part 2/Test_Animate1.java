@@ -115,6 +115,14 @@ public class Test_Animate1 extends Base
         if (translation.data.values[1] < -1.2)
             translation.data.values[1] = 1.2;
 
+        Vector hsv = baseColor.data.toHSV();
+        
+        hsv.values[0] += 0.005;
+        if (hsv.values[0] > 1)
+            hsv.values[0] = 0; 
+        
+        baseColor.data = hsv.toRGB();
+        
         // draw the triangle
         translation.uploadData();
         baseColor.uploadData();
