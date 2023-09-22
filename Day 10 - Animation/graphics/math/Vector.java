@@ -74,23 +74,34 @@ public class Vector
         int b = (int)(255 * values[2]);
 
         float[] hsv = new float[3];
-        Color.RGBtoHSB(r,g,b,hsv);
+        hsv = Color.RGBtoHSB(r,g,b,hsv);
         
-        return new Vector( hsv[0] / 255.0, hsv[1] / 255.0, hsv[2] / 255.0 );
+        return new Vector( hsv[0], hsv[1], hsv[2] );
     }
     
     // after performing HSV vector calculations, typically need to convert back to an RGB vector for
     //   use by GPU
     public Vector toRGB()
     {
-        int h = (int)(255 * values[0]);
-        int s = (int)(255 * values[1]);
-        int v = (int)(255 * values[2]);
+        float h = (float)values[0];
+        float s = (float)values[1];
+        float v = (float)values[2];
     
         int colorInt = Color.HSBtoRGB(h, s, v);
         Color color = new Color(colorInt);
         
         return new Vector( color.getRed() / 255.0, color.getGreen() / 255.0, color.getBlue() / 255.0 );
+        
+    }
+    
+    public static void test()
+    {
+        Vector rgb = new Vector(1,1,0);
+        System.out.println(rgb);
+        Vector hsv = rgb.toHSV();
+        System.out.println(hsv);
+        Vector rgb2 = hsv.toRGB();
+        System.out.println(rgb2);
         
     }
 }
