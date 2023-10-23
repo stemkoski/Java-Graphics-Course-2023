@@ -18,8 +18,8 @@ public class SurfaceGeometry extends Geometry
 			uStart, uEnd, uResolution, vStart, vEnd, vResolution);
 
 		List<Vector> quadColors = Arrays.asList(
-			new Vector(1,0,0), new Vector(0,1,0), new Vector(0,0,1),
-			new Vector(0,1,1), new Vector(1,0,1), new Vector(1,1,0) );
+			new Vector(1, 0.3, 0.3), new Vector(0.3, 1, 0.3), new Vector(0.3, 0.3, 1),
+			new Vector(0.3, 1, 1), new Vector(1, 0.3, 1), new Vector(1, 1, 0.3) );
 
 		ArrayList<Vector> positionList = new ArrayList<Vector>();
 		ArrayList<Vector> colorList    = new ArrayList<Vector>();
